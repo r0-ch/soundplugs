@@ -1,0 +1,6 @@
+knp_paginator:
+    default_options:
+        sort_field_name: ~           # sort field query parameter name
+        sort_direction_name: ~  # sort direction query parameter name
+    template:
+        pagination: '@KnpPaginator/Pagination/bootstrap_v5_pagination.html.twig'

@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SoundPlugs - Home
+{% endblock %}
+
+
+{% block body %}
+	<div class="jumbotron-bg jumbotron  text-light text-center">
+		<h1 class="display-4 ">Bienvenue chez SoundPlugs</h1>
+		<p class="lead">Votre référence en softwares et banques audio</p>
+		<hr class="my-4">
+		<p>Découvrez notre catalogue</p>
+		<p class="lead">
+			<a class="btn btn-primary btn-lg" href="{{ path("products_index") }}" role="button">Learn more</a>
+		</p>
+	</div>
+
+	<section class="">
+		<div class="container">
+			<div class="row">
+				<div class="col-6">
+					<a href="{{ path('products_type', {type: 'plugin'}) }}">
+						<img class="object-fit-cover w-100 h-75" src="https://www.native-instruments.com/typo3temp/pics/img-ce-nks-ujam-lto-2023-landingpage-03b-super-size-bf116304d05b11a0469e37120ff56bc0-d.jpg" alt="">
+						<h3 class="mt-2">Explorez nos Plug-ins</h3>
+					</a>
+				</div>
+				<div class="col-6">
+					<a href="{{ path('products_type', {type: 'sample'}) }}">
+						<img class="object-fit-cover w-100 h-75" src="https://www.native-instruments.com/typo3temp/pics/img-homepage-fables-hp-tile-2_04-8e21cc7d7cb11129692f32b4eb21529b-t.jpg" alt="">
+						<h3 class="mt-2">Explorez nos Samples</h3>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SoundPlugs - Catalogue
+{% endblock %}
+
+
+{% block body %}
+
+	<div class="jumbotron-bg product-presentation text-light">
+		<div class="">
+			<h1 class="">Découvrez nos Samples & Plugins</h1>
+			<p>Il y en a pour tout les goûts : Hip Hop, DnB, Rock</p>
+		</div>
+	</div>
+
+	<div class="container">
+
+		<div class="row">
+
+			{% if products %}
+
+				{% if form|default(null) %}
+
+					<div class="col-4 col-lg-2">
+						{{ form_start(form, { 'attr' : { 'class': 'border border-dark p-3 ' } }) }}
+						{{ form_errors(form) }}
+
+							{{ form_row(form.sort, { 'attr' : { 'class': 'form-group' } }) }}
+						<fieldset class="form-group">
+							{{ form_row(form.category, { 'attr' : { 'class': 'form-check form-switch' } }) }}
+						</fieldset>
+						<fieldset class="form-group">
+							{{ form_row(form.genre, { 'attr' : { 'class': 'form-check form-switch' } }) }}
+						</fieldset>
+
+
+						{{ form_row(form.submit, { 'label': 'Trier & Filtrer' }) }}
+						{{ form_end(form) }}
+					</div>
+
+				{% endif %}
+
+				<div class="col-8 col-lg-10">
+					<div class="d-flex flex-wrap justify-content-center">
+						{% for product in products %}
+							<a href="{{ path("products_details", {"id" : product.id}) }}">
+								<div class="card text-white bg-secondary m-3" style="max-width: 20rem;">
+									<img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
+									<div class="card-body">
+										<h4 class="card-title">{{ product.title }}</h4>
+										<p class="card-text">{{ product.summary|striptags }}</p>
+									</div>
+									<div class="card-footer">
+										<div class="pb-3">
+											<span class="border border-dark badge rounded-pill bg-light text-dark">{{product.category}}</span>
+											<span class="border border-dark badge rounded-pill bg-light text-dark">{{product.genre}}</span>
+											<span class="badge rounded-pill bg-info">{{product.price}}
+												€</span>
+										</div>
+										<a class="btn btn-primary" href="{{ path("cart_add", {id : product.id}) }}">Ajouter au panier</a>
+									</div>
+								</div>
+							</a>
+						{% endfor %}
+
+
+					</div>
+					{# {% set path = 'products_category' %}
+																																																																																	{% set category = 'Plugin' %}
+																																																																																	{% set pages = products.pages %}
+																																																																																	{% set currentPage = products.page %}
+																																																																																	{% include 'partials/_pagination.html.twig' %} #}
+					<div class="d-flex justify-content-center">
+						{{ knp_pagination_render(products) }}
+					</div>
+
+				{% endif %}
+
+
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
