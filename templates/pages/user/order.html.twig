@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	SoundPlugs - Order
+	{% if order %}
+		{{ order.id }}
+	{% endif %}
+{% endblock %}
+
+{% block body %}
+	<section>
+		<div class="container">
+			<div>
+				{% if order %}
+					<p>commande
+						{{ order.id }}</p>
+					{% for product in order.products %}
+						<a href="{{ path('products_details', {'id' : product.id}) }}">
+							<div class="card mb-3">
+								<div class="card-header">
+									<span>{{product.title}}</span>
+									<span>{{product.price}}
+										€</span>
+								</div>
+								<div class="card-body d-flex flex-wrap justify-content-start gap-2">
+									<span class="btn btn-primary">{{product.type}}</span>
+									<span class="btn btn-primary">{{product.genre}}</span>
+									<span class="btn btn-primary">{{product.category}}</span>
+									<a class="btn btn-secondary" href="{{ product.fileName }}" download>télécharger
+										{{product.fileName}}</a>
+								</div>
+							</div>
+						</a>
+					{% endfor %}
+				{% endif %}
+			</div>
+		</div>
+	</section>
+{% endblock %}

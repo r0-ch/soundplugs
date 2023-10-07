@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CartController!
+{% endblock %}
+
+{% block body %}
+
+	<div class="container">
+		{% if products %}
+			<table class="table my-5">
+				<thead>
+					<tr class="table-info">
+						<td>Produit</td>
+						<td colspan="2">Prix</td>
+					</tr>
+				</thead>
+				<tbody>
+					{% for product in products %}
+						<tr>
+							<td>
+								<span class="fw-bold">{{ product.title}}</span>
+							</td>
+							<td>{{ product.price}}
+								€</td>
+							<td>
+								<a class="btn btn-primary" href="{{ path("cart_remove", {id: product.id}) }}">-</a>
+							</td>
+						</tr>
+					{% endfor %}
+
+
+				</tbody>
+				<tfoot>
+					<tr class="table-dark">
+						<td>Total</td>
+						<td>{{ total }}
+							€</td>
+						<td>
+							<a href="{{ path('cart_empty') }}" class="btn btn-danger">Vider</a>
+							<a href="{{ path('order_add') }}" class="btn btn-secondary">Commander</a>
+						</td>
+					</tr>
+				</tfoot>
+			</table>
+		{% else %}
+			<div class="alert alert-dismissible alert-info">
+				<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+				<p>Panier vide</p>
+			</div>
+		{% endif %}
+
+		{% for label, messages in app.flashes(['success', 'warning']) %}
+			{% for message in messages %}
+				<div class="alert alert-dismissible alert-{{label}}">
+					<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+					<p>{{message}}</p>
+				</div>
+			{% endfor %}
+		{% endfor %}
+	</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	SoundPlugs - My Products
+{% endblock %}
+
+{% block body %}
+	<section>
+		<div class="container my-5">
+
+			{% for product in products %}
+				<a href="{{ path('products_details', {'id' : product.id}) }}">
+					<div class="card mb-3">
+						<div class="card-header">
+							<span>{{product.title}}</span>
+						</div>
+						<div class="card-body">
+							<span class="border border-dark badge rounded-pill bg-light text-dark">{{product.type}}</span>
+							<span class="border border-dark badge rounded-pill bg-light text-dark">{{product.genre}}</span>
+							<span class="border border-dark badge rounded-pill bg-light text-dark">{{product.category}}</span>
+						</div>
+						<a class="btn btn-primary" href="{{ path('app_download', {'id' : product.id}) }}">Télécharger</a>
+					</div>
+				</a>
+			{% endfor %}
+
+			{% for message in app.flashes('warning') %}
+				<div class="flash-notice">
+					{{ message }}
+				</div>
+			{% endfor %}
+
+		</div>
+	</section>
+{% endblock %}

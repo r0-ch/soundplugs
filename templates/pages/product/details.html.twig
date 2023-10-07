@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	SoundPlugs -
+	{{ product.title }}
+{% endblock %}
+
+
+{% block body %}
+	<div class="container">
+		<section class="py-5">
+			<img class="w-100 h-75 object-fit-cover" src="{{ product.image }}" alt="">
+			<h1 class="text-center my-4">{{ product.title }}</h1>
+			<div class="my-4">
+				<div class="my-4">
+					<span class="badge bg-primary">{{product.category}}</span>
+					<span class="badge bg-primary">{{product.genre}}</span>
+					<span class="badge rounded-pill bg-info">{{product.price}}
+						€</span>
+				</div>
+			</div>
+			<p class="p-2 my-4">{{product.description|striptags}}</p>
+			<a class="btn btn-primary" href="{{ path("cart_add", {id : product.id}) }}">Ajouter au panier</a>
+		</section>
+
+	</div>
+{% endblock %}
