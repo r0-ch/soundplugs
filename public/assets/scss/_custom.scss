@@ -1,7 +1,33 @@
+body {
+    font-family: "Rubik Bubbles" !important;
+}
+
+#navbar {
+    overflow: hidden;
+    .navbar-brand {
+        background: url("../images/logo-black.gif") no-repeat center;
+        background-size: cover;
+        height: 4em;
+        width: 4em;
+        overflow: hidden;
+    }
+}
+
 .navbar {
     height: 75px;
 }
 
 .main {
     margin-top: 75px;
+}
+
+#jumbotron-override {
+    background: url("../images/logo-white.gif") no-repeat center;
+    background-size: contain;
+    height: 325px;
+    width: 100%;
+}
+
+h3, .btn {
+    font-family: "Rubik Bubbles" !important;
 }

@@ -5,31 +5,32 @@
 
 
 {% block body %}
-	<div class="jumbotron-bg jumbotron  text-light text-center">
-		<h1 class="display-4 ">Bienvenue chez SoundPlugs</h1>
-		<p class="lead">Votre référence en softwares et banques audio</p>
-		<hr class="my-4">
-		<p>Découvrez notre catalogue</p>
-		<p class="lead">
-			<a class="btn btn-primary btn-lg" href="{{ path("products_index") }}" role="button">Learn more</a>
-		</p>
-	</div>
+	<section class="h-50">
+		<div id="jumbotron-override" class="mb-3"></div>
+		<a class="btn btn-primary btn-lg d-block container w-25" href="{{ path("products_index") }}" role="button">Learn more</a>
+	</section>
 
-	<section class="">
-		<div class="container">
-			<div class="row">
-				<div class="col-6">
-					<a href="{{ path('products_type', {type: 'plugin'}) }}">
-						<img class="object-fit-cover w-100 h-75" src="https://www.native-instruments.com/typo3temp/pics/img-ce-nks-ujam-lto-2023-landingpage-03b-super-size-bf116304d05b11a0469e37120ff56bc0-d.jpg" alt="">
-						<h3 class="mt-2">Explorez nos Plug-ins</h3>
-					</a>
-				</div>
-				<div class="col-6">
-					<a href="{{ path('products_type', {type: 'sample'}) }}">
-						<img class="object-fit-cover w-100 h-75" src="https://www.native-instruments.com/typo3temp/pics/img-homepage-fables-hp-tile-2_04-8e21cc7d7cb11129692f32b4eb21529b-t.jpg" alt="">
-						<h3 class="mt-2">Explorez nos Samples</h3>
-					</a>
-				</div>
+	<section class="mt-5">
+		<div class="row bg-white p-3">
+			<div class="col-8">
+				<a href="{{ path('products_type', {type: 'plugin'}) }}">
+					<img class="object-fit-cover w-100 h-75" src="{{ asset("assets/images/plugins.jpg")}}" alt="">
+				</a>
+			</div>
+			<div class="col-4">
+				<h3 class="mt-2">Explorez nos Plug-ins</h3>
+				<p>"Transformez votre son avec nos plugins audio de qualité supérieure. Parfaits pour tous les niveaux, ils élèvent votre création musicale à de nouveaux sommets. Découvrez l'excellence sonore dès aujourd'hui."</p>
+			</div>
+		</div>
+		<div class="row bg-white p-3">
+			<div class="col-4">
+				<h3 class="mt-2">Explorez nos Samples</h3>
+				<P>"Élevez votre créativité avec nos samples audio de première qualité. Parfaits pour tous les niveaux, découvrez une diversité inspirante pour enrichir vos productions musicales."</p>
+			</div>
+			<div class="col-8">
+				<a href="{{ path('products_type', {type: 'sample'}) }}">
+					<img class="object-fit-cover w-100 h-75" src="{{ asset("assets/images/samples.jpg")}}" alt="">
+				</a>
 			</div>
 		</div>
 	</section>

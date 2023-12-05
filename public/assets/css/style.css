@@ -1,10 +1,37 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Dhurjati&family=Edu+TAS+Beginner:wght@500&family=Nova+Square&family=Roboto:wght@100&family=Rubik+Bubbles&display=swap");
+body {
+  font-family: "Rubik Bubbles" !important;
+}
+
+#navbar {
+  overflow: hidden;
+}
+#navbar .navbar-brand {
+  background: url("../images/logo-black.gif") no-repeat center;
+  background-size: cover;
+  height: 4em;
+  width: 4em;
+  overflow: hidden;
+}
+
 .navbar {
   height: 75px;
 }
 
 .main {
   margin-top: 75px;
+}
+
+#jumbotron-override {
+  background: url("../images/logo-white.gif") no-repeat center;
+  background-size: contain;
+  height: 325px;
+  width: 100%;
+}
+
+h3, .h3, .btn {
+  font-family: "Rubik Bubbles" !important;
 }
 
 /*!
@@ -84,7 +111,7 @@
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
   --bs-body-font-size: 1rem;
-  --bs-body-font-weight: 400;
+  --bs-body-font-weight: 300;
   --bs-body-line-height: 1.5;
   --bs-body-color: #55595c;
   --bs-body-color-rgb: 85, 89, 92;
@@ -303,7 +330,7 @@ ul ol {
 }
 
 dt {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 dd {
@@ -2107,7 +2134,7 @@ progress {
   width: 100%;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.5;
   color: var(--bs-body-color);
   appearance: none;
@@ -2253,7 +2280,7 @@ textarea.form-control-lg {
   width: 100%;
   padding: 0.75rem 4.5rem 0.75rem 1.5rem;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.5;
   color: var(--bs-body-color);
   appearance: none;
@@ -2631,7 +2658,7 @@ textarea.form-control-lg {
   align-items: center;
   padding: 0.75rem 1.5rem;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.5;
   color: var(--bs-body-color);
   text-align: center;
@@ -3190,7 +3217,7 @@ textarea.form-control-lg {
 }
 
 .btn-link {
-  --bs-btn-font-weight: 400;
+  --bs-btn-font-weight: 300;
   --bs-btn-color: var(--bs-link-color);
   --bs-btn-bg: transparent;
   --bs-btn-border-color: transparent;
@@ -3520,7 +3547,7 @@ textarea.form-control-lg {
   width: 100%;
   padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
   clear: both;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--bs-dropdown-link-color);
   text-align: inherit;
   text-decoration: none;
@@ -3748,7 +3775,7 @@ textarea.form-control-lg {
 }
 .nav-underline .nav-link.active,
 .nav-underline .show > .nav-link {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--bs-nav-underline-link-active-color);
   border-bottom-color: currentcolor;
 }
@@ -4574,7 +4601,7 @@ textarea.form-control-lg {
   --bs-badge-padding-x: 0.65em;
   --bs-badge-padding-y: 0.35em;
   --bs-badge-font-size: 0.75em;
-  --bs-badge-font-weight: 700;
+  --bs-badge-font-weight: 600;
   --bs-badge-color: #fff;
   --bs-badge-border-radius: var(--bs-border-radius);
   display: inline-block;
@@ -4619,7 +4646,7 @@ textarea.form-control-lg {
 }
 
 .alert-link {
-  font-weight: 700;
+  font-weight: 600;
   color: var(--bs-alert-link-color);
 }
 
@@ -5415,7 +5442,7 @@ textarea.form-control-lg {
   margin: var(--bs-tooltip-margin);
   font-family: var(--bs-font-sans-serif);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.5;
   text-align: left;
   text-align: start;
@@ -5524,7 +5551,7 @@ textarea.form-control-lg {
   max-width: var(--bs-popover-max-width);
   font-family: var(--bs-font-sans-serif);
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.5;
   text-align: left;
   text-align: start;
@@ -8005,23 +8032,23 @@ textarea.form-control-lg {
 }
 
 .fw-light {
-  font-weight: 300 !important;
+  font-weight: 200 !important;
 }
 
 .fw-normal {
-  font-weight: 400 !important;
+  font-weight: 300 !important;
 }
 
 .fw-medium {
-  font-weight: 500 !important;
+  font-weight: 400 !important;
 }
 
 .fw-semibold {
-  font-weight: 600 !important;
+  font-weight: 500 !important;
 }
 
 .fw-bold {
-  font-weight: 700 !important;
+  font-weight: 600 !important;
 }
 
 .fw-bolder {
