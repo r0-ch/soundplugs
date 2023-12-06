@@ -15,15 +15,12 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Product[]    findAll()
  * @method Product[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ProductRepository extends ServiceEntityRepository
-{
-    public function __construct(ManagerRegistry $registry)
-    {
+class ProductRepository extends ServiceEntityRepository {
+    public function __construct(ManagerRegistry $registry) {
         parent::__construct($registry, Product::class);
     }
 
-    public function findByCategory(string $category, int $page, int $limit): array
-    {
+    public function findByCategory(string $category, int $page, int $limit): array {
         $limit = abs($limit);
         $result = [];
 
@@ -34,7 +31,7 @@ class ProductRepository extends ServiceEntityRepository
         $paginator = new Paginator($query);
         $data = $paginator->getQuery()->getResult();
 
-        if (empty($data)) {
+        if(empty($data)) {
             return $result;
         }
 
@@ -48,33 +45,35 @@ class ProductRepository extends ServiceEntityRepository
         return $result;
     }
 
-    public function findByTypeQueryBuilder(string $type, array $category = null, array $genre = null, string $order = null)
-    {
-        $queryBuilder = $this->createQueryBuilder('p')
-            ->where("p.type = '$type'")
-            ;
+    public function findByTypeQueryBuilder(string $type = null, array $category = null, array $genre = null, string $order = null) {
+        $queryBuilder = $this->createQueryBuilder('p');
 
-        if (!empty($category)) {
+        if(!empty($type)) {
+            $queryBuilder
+                ->where("p.type = '$type'");
+        }
+
+        if(!empty($category)) {
             $queryBuilder
                 ->andWhere("p.category IN (:category)")
                 ->setParameter('category', $category);
         }
 
-        if (!empty($genre)) {
+        if(!empty($genre)) {
             $queryBuilder
                 ->andWhere("p.genre IN (:genre)")
                 ->setParameter('genre', $genre);
         }
 
-        if ($order !== null) {
-            if (str_contains($order, "price")) {
+        if($order !== null) {
+            if(str_contains($order, "price")) {
                 $order = explode("_", $order)[1];
 
                 $queryBuilder
                     ->addOrderBy("p.price", $order);
             }
 
-            if (str_contains($order, "date")) {
+            if(str_contains($order, "date")) {
                 $order = explode("_", $order)[1];
 
                 $queryBuilder
