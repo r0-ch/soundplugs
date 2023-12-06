@@ -6,79 +6,76 @@
 
 {% block body %}
 
-	<div class="jumbotron-bg product-presentation text-light">
-		<div class="">
-			<h1 class="">Découvrez nos Samples & Plugins</h1>
-			<p>Il y en a pour tout les goûts : Hip Hop, DnB, Rock</p>
-		</div>
-	</div>
+	<div id="products-image" class="mb-5">
+		<p id="products-text" class="p-5 text-center text-secondary display-5 text-shadow text-capitalize">"Immerse in the Beat, Elevate Your Soul – Your Sound, Your Universe."
+		</p>
+	</p>
+</div>
 
-	<div class="container">
+<div class="container">
 
-		<div class="row">
+	<div class="d-flex">
 
-			{% if products %}
+		{% if products %}
 
-				{% if form|default(null) %}
+			{% if form|default(null) %}
 
-					<div class="col-4 col-lg-2">
-						{{ form_start(form, { 'attr' : { 'class': 'border border-dark p-3 ' } }) }}
-						{{ form_errors(form) }}
+				<div class="mw-25">
+					{{ form_start(form, { 'attr' : { 'class': 'border border-dark p-3 bg-secondary shadow-lg' } }) }}
+					{{ form_errors(form) }}
 
-							{{ form_row(form.sort, { 'attr' : { 'class': 'form-group' } }) }}
-						<fieldset class="form-group">
-							{{ form_row(form.category, { 'attr' : { 'class': 'form-check form-switch' } }) }}
-						</fieldset>
-						<fieldset class="form-group">
-							{{ form_row(form.genre, { 'attr' : { 'class': 'form-check form-switch' } }) }}
-						</fieldset>
+					{{ form_row(form.sort, { 'attr' : { 'class': 'form-group ' } }) }}
+					<fieldset class="form-group">
+						{{ form_row(form.category, { 'attr' : { 'class': 'form-check form-switch d-flex flex-column justify-content-start align-items-start' } }) }}
+					</fieldset>
+					<fieldset class="form-group">
+						{{ form_row(form.genre, { 'attr' : { 'class': 'form-check form-switch d-flex flex-column justify-content-start align-items-start' } }) }}
+					</fieldset>
 
 
-						{{ form_row(form.submit, { 'label': 'Trier & Filtrer' }) }}
-						{{ form_end(form) }}
-					</div>
+					{{ form_row(form.submit, { 'label': 'Trier & Filtrer' }) }}
+					{{ form_end(form) }}
+				</div>
 
-				{% endif %}
+			{% endif %}
 
-				<div class="col-8 col-lg-10">
-					<div class="d-flex flex-wrap justify-content-center">
-						{% for product in products %}
-							<a href="{{ path("products_details", {"id" : product.id}) }}">
-								<div class="card text-white bg-secondary m-3" style="max-width: 20rem;">
-									<img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
-									<div class="card-body">
-										<h4 class="card-title">{{ product.title }}</h4>
-										<p class="card-text">{{ product.summary|striptags }}</p>
-									</div>
-									<div class="card-footer">
-										<div class="pb-3">
-											<span class="border border-dark badge rounded-pill bg-light text-dark">{{product.category}}</span>
-											<span class="border border-dark badge rounded-pill bg-light text-dark">{{product.genre}}</span>
-											<span class="badge rounded-pill bg-info">{{product.price}}
-												€</span>
-										</div>
-										<a class="btn btn-primary" href="{{ path("cart_add", {id : product.id}) }}">Ajouter au panier</a>
-									</div>
+			<div class="mw-75">
+				<div class="d-flex flex-wrap justify-content-center">
+					{% for product in products %}
+						<a href="{{ path("products_details", {"id" : product.id}) }}">
+							<div class="card text-white bg-secondary m-3 shadow" style="max-width: 20rem;">
+								<img class="card-img-top" src="{{ product.image }}" alt="Card image cap">
+								<div class="card-body">
+									<h4 class="card-title">{{ product.title }}</h4>
+									<p class="card-text">{{ product.summary|striptags }}</p>
 								</div>
-							</a>
-						{% endfor %}
+								<div class="card-footer">
+									<div class="pb-3">
+										<span class="border border-dark badge rounded-pill bg-light text-dark">{{product.category}}</span>
+										<span class="border border-dark badge rounded-pill bg-light text-dark">{{product.genre}}</span>
+										<span class="badge rounded-pill bg-info">{{product.price}}
+											€</span>
+									</div>
+									<a class="btn btn-primary" href="{{ path("cart_add", {id : product.id}) }}">Ajouter au panier</a>
+								</div>
+							</div>
+						</a>
+					{% endfor %}
 
 
-					</div>
-					{# {% set path = 'products_category' %}
-																																																																																	{% set category = 'Plugin' %}
-																																																																																	{% set pages = products.pages %}
-																																																																																	{% set currentPage = products.page %}
-																																																																																	{% include 'partials/_pagination.html.twig' %} #}
-					<div class="d-flex justify-content-center">
-						{{ knp_pagination_render(products) }}
-					</div>
+				</div>
+				{# {% set path = 'products_category' %}
+																																																																																																									{% set category = 'Plugin' %}
+																																																																																																									{% set pages = products.pages %}
+																																																																																																									{% set currentPage = products.page %}
+																																																																																																									{% include 'partials/_pagination.html.twig' %} #}
+				<div class="d-flex justify-content-center">
+					{{ knp_pagination_render(products) }}
+				</div>
 
-				{% endif %}
+			{% endif %}
 
 
-			</div>
 		</div>
 	</div>
-
-{% endblock %}
+</div>{% endblock %}

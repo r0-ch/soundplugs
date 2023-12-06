@@ -4,6 +4,7 @@ body {
 
 #navbar {
     overflow: hidden;
+
     .navbar-brand {
         background: url("../images/logo-black.gif") no-repeat center;
         background-size: cover;
@@ -28,6 +29,31 @@ body {
     width: 100%;
 }
 
-h3, .btn {
+#products-image {
+    background: url("../images/products.png") no-repeat center;
+    background-size: cover;
+    height: 325px;
+    width: 100%;
+    z-index: -1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#products-text {
+    text-align: center;
+    text-shadow: #FC0 1px 0 10px;
+    font-family: "Edu TAS Beginner";
+    width: 75%;
+    z-index: 1;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+h3,
+.btn {
     font-family: "Rubik Bubbles" !important;
 }
