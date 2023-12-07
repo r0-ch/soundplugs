@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Agbalumo&family=Dhurjati&family=Edu+TAS+Beginner:wght@500&family=Nova+Square&family=Roboto:wght@100&family=Rubik+Bubbles&display=swap");
 body {
-  font-family: "Rubik Bubbles" !important;
+  font-family: "Nova Square" !important;
 }
 
 #navbar {
@@ -52,11 +52,6 @@ body {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-}
-
-h3, .h3,
-.btn {
-  font-family: "Rubik Bubbles" !important;
 }
 
 /*!
