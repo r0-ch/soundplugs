@@ -26,7 +26,7 @@ class DownloadController extends AbstractController
 
         $this->addFlash(
             "warning",
-            "Le fichié demandé n'existe plus ! Contactez le support."
+            "Le fichier demandé n'existe plus ! Contactez le support."
         );
         return $this->redirectToRoute('user_products');
     }

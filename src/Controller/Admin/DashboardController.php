@@ -10,10 +10,12 @@ use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 class DashboardController extends AbstractDashboardController
 {
     #[Route('/admin', name: 'admin.index')]
+    #[isGranted('admin')]
     public function index(): Response
     {
         return $this->render('admin/dashboard.html.twig');
