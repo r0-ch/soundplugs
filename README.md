@@ -53,9 +53,9 @@ Before you begin, ensure you have the following installed:
 
 5. **Run the application**:
 
-   ```bash
-   symfony server:start
-   ```
+```bash
+symfony server:start
+```
 
 ## Project Structure
 
